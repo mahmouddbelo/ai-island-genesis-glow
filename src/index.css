@@ -5,14 +5,14 @@
 
 @layer base {
   :root {
-    --background: 240 10% 98%;
-    --foreground: 240 10% 3.9%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
 
     --primary: 258 91% 65%;
     --primary-foreground: 0 0% 98%;
@@ -20,8 +20,8 @@
     --secondary: 222 83% 60%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 240 5% 96%;
-    --muted-foreground: 240 4% 46%;
+    --muted: 240 5% 15%;
+    --muted-foreground: 240 4% 70%;
 
     --accent: 258 91% 90%;
     --accent-foreground: 258 91% 30%;
@@ -29,8 +29,8 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 6% 90%;
-    --input: 240 6% 90%;
+    --border: 240 6% 15%;
+    --input: 240 6% 15%;
     --ring: 258 91% 65%;
 
     --radius: 0.75rem;
@@ -39,7 +39,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border selection:bg-aipurple-900 selection:text-white;
   }
 
   body {
@@ -53,14 +53,36 @@
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-aipurple-500 to-aiblue-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-aipurple-400 to-aiblue-400 bg-clip-text text-transparent;
   }
   
   .glass-card {
-    @apply bg-white/50 backdrop-blur-md border border-white/20 shadow-lg;
+    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-lg;
   }
   
   .hover-lift {
     @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
   }
+
+  .cyber-border {
+    @apply border border-aipurple-500/30 relative after:absolute after:inset-0 after:p-[1px] after:bg-gradient-to-r after:from-aipurple-500 after:to-aiblue-500 after:rounded-xl after:content-[''] after:z-[-1] after:animate-glow;
+  }
+
+  .cyber-button {
+    @apply relative overflow-hidden bg-background border border-aipurple-500/50 hover:border-aipurple-400
+           before:absolute before:inset-0 before:bg-gradient-to-r before:from-aipurple-600/20 before:to-aiblue-600/20
+           before:translate-x-[-100%] hover:before:translate-x-0 before:transition-transform before:duration-300;
+  }
+
+  .cyber-grid {
+    @apply bg-cyber-grid bg-[size:30px_30px];
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  overflow-x: hidden;
 }

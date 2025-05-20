@@ -54,3 +54,18 @@ html {
 section {
   overflow-x: hidden;
 }
+
+.neon-text {
+  text-shadow: 0 0 10px rgba(124, 85, 246, 0.7),
+               0 0 20px rgba(124, 85, 246, 0.5),
+               0 0 30px rgba(124, 85, 246, 0.3);
+}
+
+.neon-border {
+  box-shadow: 0 0 10px rgba(124, 85, 246, 0.5),
+              inset 0 0 10px rgba(124, 85, 246, 0.5);
+}
+
+.hero-gradient {
+  background: radial-gradient(circle at center, rgba(124, 85, 246, 0.3) 0%, transparent 70%);
+}

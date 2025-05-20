@@ -38,11 +38,14 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
-      <div className="container px-4 md:px-6">
+    <section id="contact" className="py-20 bg-muted/20 relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full cyber-grid opacity-20"></div>
+      <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-aipurple-500/50 to-transparent"></div>
+      
+      <div className="container px-4 md:px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In <span className="text-gradient">Touch</span></h2>
-          <p className="text-gray-600 text-lg">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In <span className="shine-text">Touch</span></h2>
+          <p className="text-gray-400 text-lg">
             Ready to transform your business with AI? Reach out to us today.
           </p>
         </div>
@@ -50,12 +53,12 @@ const ContactSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1 space-y-8">
             <div className="flex items-start space-x-4">
-              <div className="bg-white p-3 rounded-lg shadow-md">
-                <MapPin className="h-6 w-6 text-aipurple-500" />
+              <div className="bg-muted/30 backdrop-blur-sm p-3 rounded-lg border border-aipurple-800/30">
+                <MapPin className="h-6 w-6 text-aipurple-400" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold mb-1">Our Location</h3>
-                <p className="text-gray-600">
+                <h3 className="text-lg font-semibold mb-1 text-white">Our Location</h3>
+                <p className="text-gray-400">
                   123 Innovation Drive<br />
                   Tech Valley, CA 94103
                 </p>
@@ -63,12 +66,12 @@ const ContactSection = () => {
             </div>
             
             <div className="flex items-start space-x-4">
-              <div className="bg-white p-3 rounded-lg shadow-md">
-                <Mail className="h-6 w-6 text-aipurple-500" />
+              <div className="bg-muted/30 backdrop-blur-sm p-3 rounded-lg border border-aipurple-800/30">
+                <Mail className="h-6 w-6 text-aipurple-400" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold mb-1">Email Us</h3>
-                <p className="text-gray-600">
+                <h3 className="text-lg font-semibold mb-1 text-white">Email Us</h3>
+                <p className="text-gray-400">
                   info@aiisland.com<br />
                   support@aiisland.com
                 </p>
@@ -76,12 +79,12 @@ const ContactSection = () => {
             </div>
             
             <div className="flex items-start space-x-4">
-              <div className="bg-white p-3 rounded-lg shadow-md">
-                <Phone className="h-6 w-6 text-aipurple-500" />
+              <div className="bg-muted/30 backdrop-blur-sm p-3 rounded-lg border border-aipurple-800/30">
+                <Phone className="h-6 w-6 text-aipurple-400" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold mb-1">Call Us</h3>
-                <p className="text-gray-600">
+                <h3 className="text-lg font-semibold mb-1 text-white">Call Us</h3>
+                <p className="text-gray-400">
                   +1 (555) 123-4567<br />
                   +1 (555) 987-6543
                 </p>
@@ -89,11 +92,11 @@ const ContactSection = () => {
             </div>
           </div>
           
-          <div className="lg:col-span-2 bg-white rounded-xl shadow-lg p-8">
+          <div className="lg:col-span-2 bg-muted/30 backdrop-blur-sm rounded-xl border border-aipurple-800/30 shadow-[0_0_15px_rgba(0,0,0,0.3)] p-8 cyber-border">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
                     Your Name
                   </label>
                   <Input 
@@ -103,11 +106,11 @@ const ContactSection = () => {
                     onChange={handleChange}
                     placeholder="John Doe"
                     required
-                    className="w-full"
+                    className="w-full bg-muted/50 border-aipurple-800/50 focus:border-aipurple-500 text-white"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
                     Your Email
                   </label>
                   <Input 
@@ -118,13 +121,13 @@ const ContactSection = () => {
                     onChange={handleChange}
                     placeholder="john@example.com"
                     required
-                    className="w-full"
+                    className="w-full bg-muted/50 border-aipurple-800/50 focus:border-aipurple-500 text-white"
                   />
                 </div>
               </div>
               
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-1">
                   Subject
                 </label>
                 <Input 
@@ -134,12 +137,12 @@ const ContactSection = () => {
                   onChange={handleChange}
                   placeholder="How can we help you?"
                   required
-                  className="w-full"
+                  className="w-full bg-muted/50 border-aipurple-800/50 focus:border-aipurple-500 text-white"
                 />
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
                   Your Message
                 </label>
                 <Textarea 
@@ -149,15 +152,15 @@ const ContactSection = () => {
                   onChange={handleChange}
                   placeholder="Tell us more about your project..."
                   required
-                  className="min-h-[150px] w-full"
+                  className="min-h-[150px] w-full bg-muted/50 border-aipurple-800/50 focus:border-aipurple-500 text-white"
                 />
               </div>
               
               <Button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-aipurple-500 to-aiblue-500 hover:from-aipurple-600 hover:to-aiblue-600 text-white py-6 text-lg font-medium"
+                className="w-full cyber-button bg-gradient-to-r from-aipurple-700 to-aiblue-700 hover:from-aipurple-600 hover:to-aiblue-600 text-white py-6 text-lg font-medium border-aipurple-500/50 shadow-[0_0_15px_rgba(124,85,246,0.3)]"
               >
-                Send Message
+                <span className="relative z-10">Send Message</span>
               </Button>
             </form>
           </div>

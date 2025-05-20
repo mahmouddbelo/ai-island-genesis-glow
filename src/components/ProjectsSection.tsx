@@ -25,18 +25,22 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="py-20">
-      <div className="container px-4 md:px-6">
+    <section id="projects" className="py-20 bg-background relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full cyber-grid opacity-20"></div>
+      <div className="absolute top-20 left-20 w-80 h-80 bg-aipurple-900/20 rounded-full filter blur-3xl"></div>
+      <div className="absolute bottom-10 right-10 w-60 h-60 bg-aiblue-900/20 rounded-full filter blur-3xl"></div>
+      
+      <div className="container px-4 md:px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured <span className="text-gradient">Projects</span></h2>
-            <p className="text-gray-600 text-lg max-w-2xl">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured <span className="shine-text">Projects</span></h2>
+            <p className="text-gray-400 text-lg max-w-2xl">
               Explore our portfolio of successful AI implementations that have transformed businesses.
             </p>
           </div>
           <Button 
             variant="outline" 
-            className="mt-4 md:mt-0 border-aipurple-500 text-aipurple-600 hover:bg-aipurple-50"
+            className="mt-4 md:mt-0 border-aipurple-700/50 text-aipurple-400 bg-background/50 hover:bg-aipurple-900/30 hover:text-aipurple-300"
           >
             View All Projects
             <ArrowRight className="ml-2 h-4 w-4" />
@@ -45,29 +49,29 @@ const ProjectsSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="group rounded-xl overflow-hidden shadow-lg hover-lift">
+            <div key={index} className="group rounded-xl overflow-hidden shadow-lg hover-lift cyber-border">
               <div className="relative h-60 overflow-hidden">
                 <img 
                   src={project.image} 
                   alt={project.title} 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex items-end p-6">
                   <div>
-                    <span className="text-white/80 text-sm font-medium bg-aipurple-500/80 py-1 px-3 rounded-full">
+                    <span className="text-white/90 text-sm font-medium bg-aipurple-600/90 py-1 px-3 rounded-full">
                       {project.category}
                     </span>
                     <h3 className="text-white text-xl font-semibold mt-2">{project.title}</h3>
                   </div>
                 </div>
               </div>
-              <div className="p-6 bg-white">
-                <p className="text-gray-600 mb-4">{project.description}</p>
+              <div className="p-6 bg-muted/30 backdrop-blur-sm">
+                <p className="text-gray-400 mb-4">{project.description}</p>
                 <a 
                   href="#" 
-                  className="inline-flex items-center text-aipurple-600 font-medium hover:text-aipurple-700"
+                  className="inline-flex items-center text-aipurple-400 font-medium hover:text-aipurple-300 group"
                 >
-                  View Case Study <ArrowRight className="ml-1 h-4 w-4" />
+                  View Case Study <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
               </div>
             </div>
