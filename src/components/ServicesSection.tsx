@@ -1,6 +1,6 @@
 
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { AlertCircle, BarChart3, Brain, Code2, Database, Globe, Lightbulb, MessageSquare, Settings } from "lucide-react";
+import { AlertCircle, ArrowRight, BarChart3, Brain, Code2, Database, Globe, Lightbulb, MessageSquare, Settings } from "lucide-react";
 
 const ServicesSection = () => {
   const services = [
