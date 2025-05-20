@@ -1,8 +1,14 @@
+
 #root {
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 0;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 .logo {
@@ -39,4 +45,12 @@
 
 .read-the-docs {
   color: #888;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  overflow-x: hidden;
 }
