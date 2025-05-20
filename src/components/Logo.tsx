@@ -1,5 +1,4 @@
 
-import { Fragment } from "react";
 import { Brain, Zap, CircuitBoard } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -45,14 +44,14 @@ const Logo = ({ size = 'md', showText = true, className }: LogoProps) => {
       </div>
 
       {showText && (
-        <Fragment>
+        <>
           <span className={cn(
             size === 'sm' ? "text-xl" : size === 'md' ? "text-2xl" : "text-3xl", 
             "font-bold shine-text"
           )}>
             AI Island
           </span>
-        </Fragment>
+        </>
       )}
     </div>
   );
