@@ -2,10 +2,12 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
+import Logo from "@/components/Logo";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +16,18 @@ const Navbar = () => {
       } else {
         setIsScrolled(false);
       }
+      
+      // Update active section based on scroll position
+      const sections = document.querySelectorAll("section[id]");
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute("id") || "";
+        
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+          setActiveSection(sectionId);
+        }
+      });
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -37,12 +51,8 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <a href="#home" className="flex items-center gap-2">
-          <div className="h-10 w-10 rounded-md bg-gradient-to-br from-aipurple-500 to-aiblue-500 flex items-center justify-center text-white font-bold text-lg relative overflow-hidden">
-            <div className="absolute inset-0 bg-black/20"></div>
-            <span className="relative z-10">AI</span>
-          </div>
-          <span className="text-2xl font-bold shine-text">AI Island</span>
+        <a href="#home" className="transition-transform hover:scale-105 duration-300">
+          <Logo />
         </a>
 
         {/* Desktop Navigation */}
@@ -52,17 +62,28 @@ const Navbar = () => {
               <li key={link.name}>
                 <a
                   href={link.href}
-                  className="text-gray-300 hover:text-aipurple-400 font-medium transition-colors"
+                  className={`relative font-medium transition-colors overflow-hidden group ${
+                    activeSection === link.href.substring(1) 
+                      ? "text-aipurple-400" 
+                      : "text-gray-300 hover:text-aipurple-400"
+                  }`}
                 >
                   {link.name}
+                  <span className={`absolute bottom-[-2px] left-0 h-[2px] bg-aipurple-400 transition-all duration-300 ${
+                    activeSection === link.href.substring(1) 
+                      ? "w-full"
+                      : "w-0 group-hover:w-full"
+                  }`}></span>
                 </a>
               </li>
             ))}
           </ul>
           <Button 
-            className="cyber-button bg-transparent border border-aipurple-500 text-aipurple-400 hover:text-white"
+            className="cyber-button bg-transparent border border-aipurple-500 text-aipurple-400 hover:text-white relative overflow-hidden group"
           >
             <span className="relative z-10">Get Started</span>
+            <span className="absolute inset-0 bg-gradient-to-r from-aipurple-600/20 via-aiblue-500/20 to-aipurple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+            <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-aipurple-400 to-aiblue-400 group-hover:w-full transition-all duration-300"></span>
           </Button>
         </div>
 
@@ -83,7 +104,11 @@ const Navbar = () => {
               <li key={link.name}>
                 <a
                   href={link.href}
-                  className="text-gray-300 hover:text-aipurple-400 block py-2 font-medium"
+                  className={`block py-2 font-medium ${
+                    activeSection === link.href.substring(1) 
+                      ? "text-aipurple-400" 
+                      : "text-gray-300 hover:text-aipurple-400"
+                  }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.name}
